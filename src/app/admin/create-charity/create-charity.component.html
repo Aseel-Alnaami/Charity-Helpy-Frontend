@@ -1,0 +1,74 @@
+<form [formGroup]="createForm" class="charity-form">
+
+  <div class="form-row">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Charity Name</mat-label>
+      <input matInput formControlName="charityname">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <div class="form-field">
+      <label style="display: block; margin-bottom: 4px;">Upload Image</label>
+      <input type="file" (change)="onFileSelected($event)">
+    </div>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Goals</mat-label>
+      <textarea matInput formControlName="goals"></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="form-row">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Target Amount</mat-label>
+      <input type="number" matInput formControlName="target">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="location" readonly>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Latitude</mat-label>
+      <input type="number" matInput formControlName="latitude" readonly>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Longitude</mat-label>
+      <input type="number" matInput formControlName="longitude" readonly>
+    </mat-form-field>
+  </div>
+
+  <div id="map" style="height: 150px; width: 100%; margin: 5px;"></div>
+
+  <div class="form-row">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="categoryid">
+        <mat-option *ngFor="let cat of categories" [value]="cat.categoryid">
+          {{ cat.categoryname }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field" *ngIf="isAdmin">
+      <mat-label>Select User</mat-label>
+      <mat-select formControlName="userid">
+        <mat-option *ngFor="let user of users" [value]="user.userid">
+          {{ user.username }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit" (click)="saveCharity()" [disabled]="createForm.invalid"
+    class="submit-button">
+    Save Charity
+  </button>
+
+</form>

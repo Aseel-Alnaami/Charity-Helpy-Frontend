@@ -1,0 +1,39 @@
+<br>
+<br>
+<br>
+<br>
+
+<div class="main-container">
+    <div class="invoice-container">
+    <h2>Your Invoice</h2>
+
+    <button class="invoice-button" (click)="getLatestInvoice()">
+        Load My Invoice
+    </button>
+
+    <div *ngIf="invoice" class="invoice-details">
+        <h3>Invoice Details</h3>
+        <p><strong>Full Name:</strong> {{ invoice.fullName }}</p>
+        <p><strong>Charity Name:</strong> {{ invoice.charityName }}</p>
+        <p><strong>Email:</strong> {{ invoice.email }}</p>
+        <p><strong>Amount:</strong> ${{ invoice.amount }}</p>
+        <p><strong>Type:</strong> {{ invoice.type }}</p>
+        <p><strong>Date:</strong> {{ invoice.invoiceDate | date: 'mediumDate' }}</p>
+    </div>
+
+    <div class="action-buttons">
+        <button class="action-button" (click)="generatePDF()" [disabled]="!invoice">
+            Download PDF
+        </button>
+        <button class="action-button" (click)="sendInvoiceByEmail()" [disabled]="!invoice">
+            Send to Email
+        </button>
+        <button class="action-button">
+            <a routerLink="/user/profile">Back to Profile</a>
+        </button>
+    </div>
+</div>
+<footer>
+    <!-- محتوى الـ footer الخاص بك -->
+    © 8708 Technology Forest
+</footer>

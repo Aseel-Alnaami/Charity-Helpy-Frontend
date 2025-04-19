@@ -1,0 +1,125 @@
+<div class="content-wrapper">
+  <div class="row">
+    <!-- <div class="col-xl-3 col-sm-6 grid-margin stretch-card"> -->
+
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Category</h4>
+          <p class="card-description">
+            <button (click)="openCreateCategoryDialog()" mat-button class="btn btn-success mb-3">
+              <i class="mdi mdi-folder-plus"></i>Add New Category
+            </button>
+            <!-- <code>.table-striped</code> -->
+          </p>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th> Category Name </th>
+                  <th>Profit </th>
+
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let category of admin.Category">
+
+
+
+                  <td>{{ category.categoryname}} </td>
+                  <td>{{ category.profit }} </td>
+                  <td>
+                    <div class="d-flex gap-2">
+                      <button type="button" (click)="openUpdateDailog(category)"
+                        class="btn btn-outline-secondary btn-sm">
+                        <i class="mdi mdi-border-color"></i> Edit
+                      </button>
+                      <button type="button" (click)="openDeleteDialog(category.categoryid)"
+                        class="btn btn-danger btn-sm">
+                        <i class="mdi mdi-folder-remove"></i>Delete
+                      </button>
+
+                    </div>
+                  </td>
+
+                </tr>
+
+              </tbody>
+            </table>
+            <!-- <div> -->
+
+
+            <ng-template #openDeleteDailog>
+              <h1 mat-dialog-title>Delete Category</h1>
+              <div mat-dialog-content class="p-3" style="padding:15px">
+
+                <h2> Are You want to delete this Category ?</h2>
+              </div>
+              <div mat-dialog-actions>
+                <button class="btn btn-primary m-1" mat-dialog-close="yes">yes</button>
+                <button class="btn btn-primary m-1" mat-dialog-close="no">No</button>
+              </div>
+            </ng-template>
+
+
+
+            <ng-template #createCategoryDialog>
+              <h2 mat-dialog-title>Create New Category</h2>
+              <mat-dialog-content>
+                <form (submit)="createCategory(); closeDialog(); $event.preventDefault()">
+                  <div class="form-group">
+                    <label>Category Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="newCategory.categoryname" name="categoryname"
+                      required />
+                  </div>
+
+                  <div class="form-group">
+                    <label>Profit</label>
+                    <input type="text" class="form-control" [(ngModel)]="newCategory.profit" name="profit" required />
+                  </div>
+
+                  <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary mr-2">Create</button>
+                    <button type="button" class="btn btn-danger" (click)="closeDialog()">Cancel</button>
+                  </div>
+                </form>
+              </mat-dialog-content>
+            </ng-template>
+
+          </div>
+
+          <div>
+
+            <ng-template #callUpdateDailog>
+              <h2 mat-dialog-title>Update Category</h2>
+              <mat-dialog-content>
+                <form [formGroup]="updateForm">
+
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Category Name</mat-label>
+                    <input matInput formControlName="categoryname" required />
+                  </mat-form-field>
+                  <br />
+
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Profit</mat-label>
+                    <input matInput formControlName="profit" required />
+                  </mat-form-field>
+                  <br />
+
+                  <div class="d-flex justify-content-end">
+                    <button mat-button color="primary" (click)="updateCategory()"
+                      [mat-dialog-close]="true">Update</button>
+                    <button mat-button type="button" color="warn" (click)="closeDialog()">Cancel</button>
+                  </div>
+
+                </form>
+              </mat-dialog-content>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

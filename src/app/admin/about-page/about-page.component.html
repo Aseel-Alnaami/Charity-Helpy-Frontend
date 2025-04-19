@@ -1,0 +1,78 @@
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">About US</h4>
+                    <p class="card-description">
+                        About Page
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-striped text-wrap">
+                            <thead>
+                                <tr>
+                                    <th>Hero Image</th>
+                                    <th>Text 1</th>
+                                    <th>Text 2</th>
+                                    <th>Mission Image</th>
+                                    <th>Text 3</th>
+                                    <th>Text 4</th>
+                                    <th>Edit </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let aboutItem of about">
+                                    <td>
+                                        <img [src]=" 'assets/DynamicPage/AboutImg/'+aboutItem.heroImg"
+                                            alt="{{ aboutItem.heroImg }}" width="100" height="auto">
+                                    </td>
+
+                                    <td>{{ aboutItem.text1 }}</td>
+                                    <td>{{ aboutItem.text2 }}</td>
+                                    <td>
+                                        <img [src]=" 'assets/DynamicPage/AboutImg/'+aboutItem.missionImg"
+                                            alt="{{ aboutItem.missionImg }}" width="auto" height="auto">
+                                    </td>
+                                    <td>{{ aboutItem.text3 }}</td>
+                                    <td>{{ aboutItem.text4 }}</td>
+                                    <td>
+                                        <button type="button" (click)="openUpdateDialog(aboutItem)"
+                                            class="btn btn-outline-secondary btn-sm">
+                                            <i class="mdi mdi-border-color"></i> Edit
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <div *ngIf="selectedAboutItem" class="mt-4">
+                            <h4>Edit About Page</h4>
+                            <form (ngSubmit)="updateAboutPage()">
+                                <input type="text" [(ngModel)]="selectedAboutItem.text1" name="text1"
+                                    placeholder="Text 1" class="form-control mb-2" required>
+                                <input type="text" [(ngModel)]="selectedAboutItem.text2" name="text2"
+                                    placeholder="Text 2" class="form-control mb-2" required>
+                                <input type="text" [(ngModel)]="selectedAboutItem.text3" name="text3"
+                                    placeholder="Text 3" class="form-control mb-2" required>
+                                <input type="text" [(ngModel)]="selectedAboutItem.text4" name="text4"
+                                    placeholder="Text 4" class="form-control mb-2" required>
+                                <label>Hero Image:</label>
+                                <input type="file" (change)="onHeroImgSelected($event)" class="form-control mb-2"
+                                    required>
+
+                                <label>Mission Image:</label>
+                                <input type="file" (change)="onMissionImgSelected($event)" class="form-control mb-2"
+                                    required>
+
+                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="button" (click)="selectedAboutItem = null"
+                                    class="btn btn-secondary ms-2">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

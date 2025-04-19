@@ -1,0 +1,30 @@
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .form-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .btn-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .table td, .table th {
+    max-width: 200px; 
+    white-space: normal; 
+    word-wrap: break-word; 
+    word-break: break-word;
+    vertical-align: top;
+  }
+  
+  

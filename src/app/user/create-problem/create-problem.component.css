@@ -1,0 +1,18 @@
+.problem-form {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+button {
+  align-self: flex-end;
+}

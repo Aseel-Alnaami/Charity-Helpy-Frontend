@@ -1,0 +1,261 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+<!-- <body> -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<div class="main-content">
+  <!-- Top navbar -->
+  <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+    <div class="container-fluid">
+      
+    </div>
+  </nav>
+  
+  <!-- Header -->
+  <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px;  background-size: cover;background-color: rgb(249, 242, 242); background-position: center top;">
+   
+    <span class="mask bg-gradient-default opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-7 col-md-10">
+          <h1 class="display-2 text-white"  *ngIf="userId" >Hello {{ fullname }}
+          </h1>
+
+          <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
+          <!-- <a href="#!" class="btn btn-info">Edit profile</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  
+
+  <!-- Page content -->
+   <div class="container-fluid mt--7">
+   <div class="row">
+      
+      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+        <div class="card card-profile shadow">
+          <div class="row justify-content-center">
+            <div class="col-lg-12 text-center mt-4">
+              <div class="card-profile-image mb-3">
+                <!-- You can add a profile image here if needed -->
+                <!-- <img src="path_to_image.jpg" class="rounded-circle" alt="User image"> -->
+              </div>
+      <h2 class="text-primary font-weight-bold mb-4">
+        <i class='bx bxs-zap bx-tada' style='color:#fbd459; font-size: 30px;'></i>
+        Quick Actions
+      </h2>
+      
+              <!-- Optional message -->
+             
+              <!-- Custom component button -->
+              <app-problem  class="btn btn-primaryy custom-btn mb-3" ></app-problem>
+              <!-- Add testimonial button -->
+              <button type="button"   class="btn btn-primaryy custom-btn mb-3" (click)="openTestimonialDialog()">
+                Send Feedback <i class="mdi mdi-magnify"></i>
+              </button>
+
+              <button type="button" class="btn btn-primaryy custom-btn mb-3" (click)="openCreateDialog()">Create New Charity</button>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      
+
+      <div class="col-xl-8 order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">My account</h3>
+              </div>
+              <!-- <div class="col-4 text-right">
+                <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="card-body">
+            <form [formGroup]="updateForm" (ngSubmit)="updateUser()">
+              <h6 class="heading-small text-muted mb-4">User information</h6>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group focused">
+                    <label class="form-control-label" for="profile-img">Profile Picture</label>
+                    <div class="profile-image">
+                      <img [src]="updateForm.value.profilepicture" alt="Profile Image" class="profile-img">
+                    </div>
+                    <div>
+                      <input type="file" id="profile-img" class="form-control form-control-alternative" (change)="updateUserWithImage($event)">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="fullname">Full Name</label>
+                      <input 
+                        type="text" 
+                        id="fullname" 
+                        class="form-control form-control-alternative" 
+                        placeholder="Full Name"
+                        formControlName="fullname">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="password">Password</label>
+                      <input 
+                        type="password" 
+                        id="password" 
+                        class="form-control form-control-alternative" 
+                        placeholder="Enter new password"
+                        formControlName="password">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="username">Username</label>
+                      <input 
+                        type="text" 
+                        id="username" 
+                        class="form-control form-control-alternative" 
+                        placeholder="Username"
+                        formControlName="username">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="email">Email address</label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        class="form-control form-control-alternative" 
+                        placeholder="Enter your email"
+                        formControlName="email">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="phone">Phone</label>
+                      <input 
+                        type="text" 
+                        id="phone" 
+                        class="form-control form-control-alternative" 
+                        placeholder="Phone number"
+                        formControlName="phone">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group focused">
+                      <label class="form-control-label" for="dob">Date of Birth</label>
+                      <input 
+                        type="date" 
+                        id="dob" 
+                        class="form-control form-control-alternative" 
+                        formControlName="dateofbirth">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-primaryy custom-btn">Save Changes</button>
+                </div>              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- charity  -->
+
+
+  
+<section class="vl-cause-inner sp2">
+  <div class="container">
+    <div class="vl-causes-section-title text-center">
+      <div class="vl-section-title-1 mb-60">
+        <h5 class="subtitle">Charities</h5>
+        <h2 class="title text-anime-style-3">My Charities</h2>
+        <p>Track and manage your created charities in one place. </p>
+      </div>
+   
+
+    
+<div class="filter-container">
+  <button 
+    *ngFor="let status of statuses" 
+    (click)="setFilter(status.value)" 
+    [class.active]="selectedStatus === status.value" 
+    class="filter-btn">
+    {{ status.label }}
+  </button>
+</div>
+ </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-6" *ngFor="let charity of filteredCharities">
+        <div class="vl-single-cause-box mb-30">
+          <div class="vl-cause-thumb">
+            <div class="image-container1">
+
+              <img class="w-100" src="assets/charityImages/{{charity.charityimg}}" alt="{{ charity.charityname }}">
+              <div class="ribbon">{{charity.status}}</div>
+            </div>
+              <!-- <div class="btn-area casue-btn text-center">
+              <a href="cause-single.html" class="header-btn1">
+                Donate <span><i class="fa-solid fa-arrow-right"></i></span>
+              </a>
+            </div> -->
+          </div>
+          <div class="vl-cause-content">
+            <div class="vl-progress">
+              <div class="skill-progress">
+                <div class="skill-box">
+                  <div class="skill-bar skill-bar2">
+                    <span class="skill-per html" [style.width]="(charity.target > 0) ? ((charity.currentdonation / charity.target) * 100) + '%' : '0%'">
+                      <span class="tooltipp">
+                        {{ (charity.target > 0) ? ((charity.currentdonation / charity.target) * 100).toFixed(0) + '%' : '0%' }}
+                      </span>
+                    </span>
+                  </div>
+                  <div class="skill-vlue">
+                    <div class="num1"><span>Raised: </span>${{ charity.currentdonation }}</div>
+                    <div class="num1"><span>Goal: </span>${{ charity.target }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <button class="pay-btn" (click)="payForCharity(charity.target)">Pay Now</button> -->
+
+            <div class="badge mt-32">{{ charity.category?.categoryname }}</div>
+            <!-- <div class="charity-actions1"> -->
+
+            <div class="text-center mt-2" *ngIf="charity.status.toLowerCase() === 'accepted'">
+              <button class="shared-btn" (click)="goToPayment(charity)"> Shared Now <i class="fa-solid fa-arrow-right"></i> </button>
+
+            </div>
+          <!-- </div> -->
+            <h3 class="title">
+              <a href="cause-single.html">{{ charity.charityname }}</a>
+              <!-- <p>{{charity.category?.profit}}</p> -->
+            </h3>
+            <p>{{charity.goals}} {{ charity.description }} </p>
+            <p><strong>Posted by:</strong> {{ charity.user?.username }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </section>

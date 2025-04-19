@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Create Role</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Role Name</mat-label>
+            <input matInput type="text" id="proleName" formControlName="rolename">
+
+            <mat-error
+                *ngIf="createForm.controls['rolename'].hasError('required') && createForm.controls['rolename'].touched">
+                Role name is required.
+            </mat-error>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" (click)="onSubmit()" mat-button class="btn btn-primary">Save</button>
+</mat-dialog-actions>

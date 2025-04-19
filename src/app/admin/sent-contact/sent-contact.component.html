@@ -1,0 +1,49 @@
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-xl-12 col-sm-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Sent Contacts</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                    <th>Contact Date</th>
+                                    <th>Status</th>
+                                    <th>Operations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let contact of sendContacts">
+                                    <td>{{contact.contactid}}</td>
+                                    <td>{{contact.name}}</td>
+                                    <td>{{contact.email}}</td>
+                                    <td>{{contact.message}}</td>
+                                    <td>{{contact.contactdate}}</td>
+                                    <td>{{contact.status}}</td>
+                                    <td>
+                                        <button type="button" mat-button (click)="openDialog(contact.contactid)"
+                                            class="btn btn-danger m-1">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <ng-template #CallDelteDialog>
+                            <h1 mat-dialog-title>Delete ContactUS</h1>
+                            <div mat-dialog-content>Are you sure you want to delete this item?</div>
+                            <div mat-dialog-actions>
+                                <button mat-button mat-dialog-close="yes">Yes</button>
+                                <button mat-button mat-dialog-close="no">No</button>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</div> 
