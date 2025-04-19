@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Boilerplate</title>
+</head>
+<body>
+
+    <h1> Registration Form </h1>
+        <form id="task01" action="Task011.HTML">
+    <center>
+ <fieldset style="  background: #ffeb3b63; height: fit-content; width: 400px; " >
+    <legend> Personal details</legend>
+
+   
+        <table>
+<tr> <td>
+        <label FOR="FN"> Fiest name </label></td>
+
+        <td><input  type="text"   id="FN" name="FN" required /></td>
+       </tr>
+       <tr> 
+        <td> 
+        <label for="LN"> Last name </label></td>
+        <td> 
+        <input  type="text" id="LN" required /></td>
+       </tr>
+        <tr> <td>
+        <label for="email"> Email address </label></td>
+        <td> 
+        <input  type="email"  id="em" required/> </td>
+</tr>
+        <tr> <td> Gender</td>
+        <td> <input type="radio" name="gender" id="male" required>
+        <label for="male">Male</label>  </td>
+   
+        <td><input type="radio" name="gender" id="female" required>
+       <label for="Female">Female</label></td>
+    </tr>
+    </table>
+
+</fieldset>
+<br>
+<fieldset style="width: fit-content;background: #ffeb3b63; height: fit-content; width: 400px;"  >
+
+    <legend>City</legend> 
+   
+        <label for="city">City:</label>
+        <select name="city" id="city" >
+        <option value="1">Amaan</option>
+        <option value="2">Irbid</option>
+        <option value="3">Petra</option>
+        </select>
+
+  
+</div>
+</fieldset>
+<br>
+<div>
+    
+        <button type="submit"onclick="confarm()" > subscribe</button>
+        <button type="reset" onclick="ResetBtn()">Reset</button>
+        <!-- <button type="submit">ttt</button> -->
+
+    </form>
+    </div>
+
+ 
+</body>
+</html>
+
+<script>
+     
+
+    function ResetBtn() {
+        document.getElementById('task01').reset();
+    }
+
+
+
+
+
+    // function check(){
+
+        
+    //     const FNN = document.getElementById("FN").value;
+    //     const lnn = document.getElementById("LN").value;
+    //     const emm = document.getElementById("EM").value;
+    //     const Cityy = document.getElementById("city").value;
+
+    //     if( confirm("Are you sure to register ?" )){
+    //         if ( !FNN)
+    //                 {
+    //                 alert('Please enter your first name!');
+    //                 }
+    //         elseif(!lnn)
+    //         {
+    //             alert('Please enter your last name!');
+    //         }
+    //         elseif(!emm)
+    //         {alert('Please enter your email!');}
+    //         elseif(!Cityy)
+    //         {alert('Please select your city!');    } 
+         
+          
+    // }
+    // else{
+
+    // }
+
+    function confarm(){ 
+        confirm("Are you sure to register ?" );
+
+        // const FNN = document.getElementById("FN").value;
+        // const lnn = document.getElementById("LN").value;
+        // const emm = document.getElementById("EM").value;
+        // const Cityy = document.getElementById("city").value;
+
+
+            // if ( !FNN)
+            //         {
+            //         alert('Please enter your first name!');
+            //         }
+            // elseif(!lnn)
+            // {alert('Please enter your last name!'); }
+
+            // elseif(!emm)
+            // {alert('Please enter your email!');}
+
+            // elseif(!Cityy)
+            // {alert('Please select your city!');    }
+
+        
+    } 
+
+    // function confarm(){
+    //     if( confirm("Are you sure to register ?" )){
+
+
+
+
+    //     const FNN = document.getElementById("FN").value;
+    //     const lnn = document.getElementById("LN").value;
+
+    //         if ( !FNN)
+    //                 {
+    //                 alert('Please enter your first name!');
+    //                 }
+    //         elseif(!lnn)
+    //         {
+    //             alert('Please enter your last name!');
+    //         }
+            
+//////////////////////////////////////////////////////////////
+
+    //   if( confirm("Are you sure to register ?" )){
+    //         if (!isset(FN) || empty(FN))
+    //         {
+    //         alert('Please enter your first name!');
+    //         }
+
+            // elseif (!isset($ln) || empty($ln))
+            // {
+            //     alert('Please enter your last name!');
+            // }
+            // elseif (!isset($em) || empty($em))
+            // {
+            //     alert('Please enter your email!');
+            // }
+
+            // elseif (!isset($city) || empty($city))
+            // {
+            //     alert('Please enter your city!');
+            // }
+
+            // elseif (!isset($female) || !isset($male) )
+            // {
+            //     alert('Please select your gender!');
+            // }
+
+           
+    //         }
+      
+    //   else {
+    //         return false; 
+    //     } ;
+    // }
+
+
+//////////////////////////////////////////////////////////////////////
+    // function validateForm() {
+    //         let formIsValid = true;
+    //         const firstName = document.getElementById('FN');
+    //         const lastName = document.getElementById('LN');
+    //         const email = document.getElementById('em');
+    //         const genderMale = document.getElementById('male');
+    //         const genderFemale = document.getElementById('female');
+    //         const city = document.getElementById('city');
+
+    //         // Clear previous error messages
+    //         document.querySelectorAll('.error-message').forEach(function(error) {
+    //             error.style.display = 'none';
+    //         });
+
+    //         // Validate each input
+    //         if (!firstName.checkValidity()) {
+    //             document.getElementById('FN-error').style.display = 'block';
+    //             formIsValid = false;
+    //         }
+
+    //         if (!lastName.checkValidity()) {
+    //             document.getElementById('LN-error').style.display = 'block';
+    //             formIsValid = false;
+    //         }
+
+    //         if (!email.checkValidity()) {
+    //             document.getElementById('em-error').style.display = 'block';
+    //             formIsValid = false;
+    //         }
+
+    //         if (!genderMale.checked && !genderFemale.checked) {
+    //             alert('Please select a gender.');
+    //             formIsValid = false;
+    //         }
+
+    //         if (!city.checkValidity()) {
+    //             document.getElementById('city-error').style.display = 'block';
+    //             formIsValid = false;
+    //         }
+
+    //         return formIsValid;
+    //     }
+
+    //     function confarm() {
+    //         if (validateForm()) {
+    //             if (confirm("Are you sure you want to register?")) {
+    //                 return true; // Submit the form
+    //             }
+    //         }
+    //         return false; // Prevent form submission
+    //     }
+   
+</script>

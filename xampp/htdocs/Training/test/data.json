@@ -1,0 +1,47 @@
+[
+    {
+        "Question":" what value is given for the left margin:margin: 5px 10px 3px 8px?",
+        "Answers":[
+            {"text":"5px","YON":"False"},
+            {"text":"10px","YON":"False"},
+            {"text":"3px","YON":"False"},
+            {"text":"8px","YON":"True"}
+        ]
+    }
+    ,{
+        "Question":"Inside which HTML element do we put the JavaScript?",
+        "Answers":[
+            {"text":"scrept","YON":"True"},
+            {"text":"JS","YON":"False"},
+            {"text":"link","YON":"False"},
+            {"text":"html","YON":"False"}
+        ]
+    }
+    ,{
+        "Question":" Which doctype is correct for HTML5?",
+        "Answers":[
+            {"text":"!DOCTYPE HTML5","YON":"False"},
+            {"text":"!DOCTYPE html","YON":"True"},
+            {"text":"!DOCTYPE","YON":"False"},
+            {"text":"HTML","YON":"False"}
+        ]
+    }
+    ,{
+        "Question":"The # symbol specifies that the selector is?",
+        "Answers":[
+            {"text":"tag","YON":"False"},
+            {"text":"first","YON":"False"},
+            {"text":"class","YON":"False"},
+            {"text":"id","YON":"True"}
+        ]
+    }
+    ,{
+        "Question":"How can you print information to the console?",
+        "Answers":[
+            {"text":"console(info)","YON":"False"},
+            {"text":"print(info)","YON":"False"},
+            {"text":"console.log(info)","YON":"True"},
+            {"text":"console.info","YON":"False"}
+        ]
+    }
+]

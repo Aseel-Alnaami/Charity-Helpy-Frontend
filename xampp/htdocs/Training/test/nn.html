@@ -1,0 +1,408 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to HTML Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+</head>
+<body>
+    <div class="container">
+        <h1>JSON Data Display</h1>
+        <button onclick="fillTable()">Fill Table</button>
+        <button onclick="showGmailUsers()">Show Gmail Users</button>
+        <button onclick="showAvgAgeAbove25()">Show Avg Age Above 25</button>
+        <button onclick="showNonMondayBorn()">Show Non-Monday Born</button>
+        <button onclick="showNamesStartingWithA()">Show Names Starting with A</button>
+        <button onclick="showUniqueBirthdays()">Show Unique Birthdays</button>
+        <button onclick="showMobilesWithZero()">Show Mobiles with 0</button>
+        <button onclick="showWinnersAbove30()">Show Winners Above 30</button>
+        <button onclick="showSuggestedPasswords()">Show Suggested Passwords</button>
+        <button onclick="showIdOddNumbers()">Show ID Odd Numbers</button>
+
+        <table class="table align-middle mb-0 bg-white mt-4">
+            <thead class="bg-light">
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Mobile</th>
+              </tr>
+            </thead>
+            <tbody id="data-output">
+            </tbody>
+        </table>
+
+        <div id="result-output" class="mt-4"></div>
+    </div>
+
+    <script>
+        const data = [
+            {
+                "id": 1,
+                "img": "1.png",
+                "name": "Aseel Alnaami",
+                "birthday": "07-11-2002",
+                "age": 21,
+                "email": "aseelalnaami01@gmail.com",
+                "mobile": "+962788318984"
+            },
+            {
+                "id": 2,
+                "img": "2.png",
+                "name": "Suho",
+                "birthday": "22-05-1991",
+                "age": 35,
+                "email": "Suho@gmail.com",
+                "mobile": "+962788318984"
+            },
+            {
+                "id": 3,
+                "img": "2.png",
+                "name": "John",
+                "birthday": "25-10-2006",
+                "age": 18,
+                "email": "john@yahoo.com",
+                "mobile": "+962788311238"
+            },
+            {
+                "id": 4,
+                "img": "4.png",
+                "name": "Lose",
+                "birthday": "07-08-2000",
+                "age": 24,
+                "email": "Lose@outlook.com",
+                "mobile": "5647382901"
+            },
+            {
+                "id": 5,
+                "img": "5.png",
+                "name": "Dong Wook Kim",
+                "birthday": "29-07-1983",
+                "age": 40,
+                "email": "kimdongwook@gmail.com",
+                "mobile": "+962788318984"
+            },
+            {
+                "id": 6,
+                "img": "6.png",
+                "name": "Yona Woo",
+                "birthday": "22-09-1997",
+                "age": 27,
+                "email": "yonawook@outlook.com",
+                "mobile": "+962712543890"
+            }
+        ];
+
+        function fillTable() {
+            let placeholder = document.querySelector("#data-output");
+            placeholder.innerHTML = "";
+            data.forEach(odata => {
+                placeholder.innerHTML += `<tr>
+                    <td>${odata.id}</td>
+                    <td><img src='${odata.img}' alt='${odata.name}'></td>
+                    <td>${odata.name}</td>
+                    <td>${odata.birthday}</td>
+                    <td>${odata.age}</td>
+                    <td>${odata.email}</td>
+                    <td>${odata.mobile}</td>
+                </tr>`;
+            });
+        }
+
+        function showGmailUsers() {
+            const gmailUsers = data.filter(odata => odata.email.includes("gmail")).map(odata => ({
+                name: odata.name,
+                email: odata.email
+            }));
+            displayResult("Gmail Users:", gmailUsers);
+        }
+
+        function showAvgAgeAbove25() {
+            const agesAbove25 = data.filter(odata => odata.age > 25).map(odata => odata.age);
+            const avgAgeAbove25 = agesAbove25.reduce((acc, age) => acc + age, 0) / agesAbove25.length;
+            displayResult("Average Age Above 25:", avgAgeAbove25);
+        }
+
+        function showNonMondayBorn() {
+            function isBornOnMonday(birthday) {
+                const date = new Date(birthday.split('-').reverse().join('-'));
+                return date.getDay() === 1; // Monday is 1
+            }
+            const nonMondayBorn = data.filter(odata => !isBornOnMonday(odata.birthday)).map(odata => ({
+                name: odata.name,
+                birthday: odata.birthday
+            }));
+            displayResult("Non-Monday Born:", nonMondayBorn);
+        }
+
+        function showNamesStartingWithA() {
+            const namesStartingWithA = data.filter(odata => odata.name.startsWith('A')).map(odata => odata.name);
+            displayResult("Names Starting with A:", namesStartingWithA);
+        }
+
+        function showUniqueBirthdays() {
+            const uniqueBirthdays = [...new Set(data.map(odata => odata.birthday))];
+            displayResult("Unique Birthdays:", uniqueBirthdays);
+        }
+
+        function showMobilesWithZero() {
+            const mobilesWithZero = data.filter(odata => odata.mobile.includes('0')).map(odata => ({
+                name: odata.name,
+                mobile: odata.mobile
+            }));
+            displayResult("Mobiles with 0:", mobilesWithZero);
+        }
+
+        function showWinnersAbove30() {
+            const winnersAbove30 = data.filter(odata => odata.age > 30).map(odata => odata.name);
+            displayResult("Winners Above 30:", winnersAbove30);
+        }
+
+        function showSuggestedPasswords() {
+            const suggestedPasswords = data.map(odata => ({
+                name: odata.name,
+                password: (odata.name + odata.birthday + odata.mobile).split('').sort(() => Math.random() - 0.5).join('')
+            }));
+            displayResult("Suggested Passwords:", suggestedPasswords);
+        }
+
+        function showIdOddNumbers() {
+            const idOddNumbers = data.map(odata => ({
+                name: odata.name,
+                winner: odata.id % 2 !== 0 ? "True" : "False"
+            }));
+            displayResult("ID Odd Numbers:", idOddNumbers);
+        }
+
+        function displayResult(title, result) {
+            const output = document.querySelector("#result-output");
+            let listContent = `<h2>${title}</h2><ul>`;
+            if (Array.isArray(result)) {
+                result.forEach(item => {
+                    if (typeof item === 'object') {
+                        listContent += `<li>${JSON.stringify(item, null, 2)}</li>`;
+                    } else {
+                        listContent += `<li>${item}</li>`;
+                    }
+                });
+            } else {
+                listContent += `<li>${result}</li>`;
+            }
+            listContent += '</ul>';
+            output.innerHTML = listContent;
+        }
+    </script>
+</body>
+</html>
+<style>
+    body{
+      background-color: #e1d8d8;
+    }
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #bf8f7e;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        height: 40px;
+        width: 194px;
+    }
+    button:hover {
+        background-color: #e47845;
+    }
+    </style> -->
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON to HTML Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+</head>
+<body>
+    <div class="container">
+        <h1>JSON Data Display</h1>
+        <button onclick="fillTable()">Fill Table</button>
+        <button onclick="showGmailUsers()">Show Gmail Users</button>
+        <button onclick="showAvgAgeAbove25()">Show Avg Age Above 25</button>
+        <button onclick="showNonMondayBorn()">Show Non-Monday Born</button>
+        <button onclick="showNamesStartingWithA()">Show Names Starting with A</button>
+        <button onclick="showUniqueBirthdays()">Show Unique Birthdays</button>
+        <button onclick="showMobilesWithZero()">Show Mobiles with 0</button>
+        <button onclick="showWinnersAbove30()">Show Winners Above 30</button>
+        <button onclick="showSuggestedPasswords()">Show Suggested Passwords</button>
+        <button onclick="showIdOddNumbers()">Show ID Odd Numbers</button>
+
+        <table class="table align-middle mb-0 bg-white mt-4">
+            <thead class="bg-light">
+              <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Mobile</th>
+              </tr>
+            </thead>
+            <tbody id="data-output">
+            </tbody>
+        </table>
+
+        <div id="result-output" class="mt-4"></div>
+    </div>
+
+    <script>
+        const data = [
+            {
+                "id": 1,
+                "img": "1.png",
+                "name": "Aseel Alnaami",
+                "birthday": "07-11-2002",
+                "age": 21,
+                "email": "aseelalnaami01@gmail.com",
+                "mobile": "+962788318984"
+            },
+            {
+                "id": 2,
+                "img": "2.png",
+                "name": "Suho",
+                "birthday": "22-05-1991",
+                "age": 35,
+                "email": "Suho@gmail.com",
+                "mobile": "+962788318984"
+            },
+            {
+                "id": 3,
+                "img": "2.png",
+                "name": "John",
+                "birthday": "25-10-2006",
+                "age": 18,
+                "email": "john@yahoo.com",
+                "mobile": "+962788311238"
+            },
+            {
+                "id": 4,
+                "img": "4.png",
+                "name": "Lose",
+                "birthday": "07-08-2000",
+                "age": 24,
+                "email": "Lose@outlook.com",
+                "mobile": "5647382901"
+            },
+            {
+                "id": 5,
+                "img": "5.png",
+                "name": "Dong Wook Kim",
+                "birthday": "29-07-1983",
+                "age": 40,
+                "email": "kimdongwook@gmail.com",
+                "mobile": "+962788318984"
+            },
+            {
+                "id": 6,
+                "img": "6.png",
+                "name": "Yona Woo",
+                "birthday": "22-09-1997",
+                "age": 27,
+                "email": "yonawook@outlook.com",
+                "mobile": "+962712543890"
+            }
+        ];
+
+        function fillTable() {
+            let placeholder = document.querySelector("#data-output");
+            placeholder.innerHTML = "";
+            data.forEach(odata => {
+                placeholder.innerHTML += `<tr>
+                    <td>${odata.id}</td>
+                    <td><img src='${odata.img}' alt='${odata.name}'></td>
+                    <td>${odata.name}</td>
+                    <td>${odata.birthday}</td>
+                    <td>${odata.age}</td>
+                    <td>${odata.email}</td>
+                    <td>${odata.mobile}</td>
+                </tr>`;
+            });
+        }
+
+        function showGmailUsers() {
+            const gmailUsers = data.filter(odata => odata.email.includes("gmail")).map(odata => ({
+                name: odata.name,
+                email: odata.email
+            }));
+            displayResult("Gmail Users:", gmailUsers);
+        }
+
+        function showAvgAgeAbove25() {
+            const agesAbove25 = data.filter(odata => odata.age > 25).map(odata => odata.age);
+            const avgAgeAbove25 = agesAbove25.reduce((acc, age) => acc + age, 0) / agesAbove25.length;
+            displayResult("Average Age Above 25:", avgAgeAbove25);
+        }
+
+        function showNonMondayBorn() {
+            function isBornOnMonday(birthday) {
+                const date = new Date(birthday.split('-').reverse().join('-'));
+                return date.getDay() === 1; // Monday is 1
+            }
+            const nonMondayBorn = data.filter(odata => !isBornOnMonday(odata.birthday)).map(odata => ({
+                name: odata.name,
+                birthday: odata.birthday
+            }));
+            displayResult("Non-Monday Born:", nonMondayBorn);
+        }
+
+        function showNamesStartingWithA() {
+            const namesStartingWithA = data.filter(odata => odata.name.startsWith('A')).map(odata => odata.name);
+            displayResult("Names Starting with A:", namesStartingWithA);
+        }
+
+        function showUniqueBirthdays() {
+            const uniqueBirthdays = [...new Set(data.map(odata => odata.birthday))];
+            displayResult("Unique Birthdays:", uniqueBirthdays);
+        }
+
+        function showMobilesWithZero() {
+            const mobilesWithZero = data.filter(odata => odata.mobile.includes('0')).map(odata => ({
+                name: odata.name,
+                mobile: odata.mobile
+            }));
+            displayResult("Mobiles with 0:", mobilesWithZero);
+        }
+
+        function showWinnersAbove30() {
+            const winnersAbove30 = data.filter(odata => odata.age > 30).map(odata => odata.name);
+            displayResult("Winners Above 30:", winnersAbove30);
+        }
+
+        function showSuggestedPasswords() {
+            const suggestedPasswords = data.map(odata => ({
+                name: odata.name,
+                password: (odata.name + odata.birthday + odata.mobile).split('').sort(() => Math.random() - 0.5).join('')
+            }));
+            displayResult("Suggested Passwords:", suggestedPasswords);
+        }
+
+        function showIdOddNumbers() {
+            const idOddNumbers = data.map(odata => ({
+                name: odata.name,
+                winner: odata.id % 2 !== 0 ? "True" : "False"
+            }));
+            displayResult("ID Odd Numbers:", idOddNumbers);
+        }
+
+        function displayResult(title, result) {
+            const output = document.querySelector("#result-output");
+            output.innerHTML = `<h2>${title}</h2><pre>${JSON.stringify(result, null, 2)}</pre>`;
+        }
+    </script>
+</body>
+</html>

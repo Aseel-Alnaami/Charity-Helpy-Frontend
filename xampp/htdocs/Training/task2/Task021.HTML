@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise#2- List</title>
+</head>
+<body>
+
+    <style>
+        .YZ {
+            counter-reset: custom-counter 24; 
+            list-style-type: none; 
+        }
+        .YZ li {
+            counter-increment: custom-counter;
+        }
+        .YZ li::before {
+            content: counter(custom-counter, upper-alpha) ". "; 
+            
+        }
+    </style>
+    <h3>What about Back_end?</h3>
+    <ul> 
+        <li>Back_end
+            <ol type="i"> 
+              <li>Python</li>  
+              <li>PHP <ol class="YZ" >
+              <li>Lararvel</li>  
+              <li>Pure</li>  
+                
+              </ol> 
+
+              </li>  
+            </ol>
+
+        </li>    
+    
+    </ul>
+    <!-- ******************* Q2 ****************
+    <hr>
+
+    <br>
+    <br>
+    <br> -->
+    
+
+
+</body>
+</html>
+
+</body>
+</html>

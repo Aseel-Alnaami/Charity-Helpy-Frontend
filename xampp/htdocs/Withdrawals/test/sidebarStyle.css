@@ -1,0 +1,103 @@
+
+body{
+margin: 0;
+padding: 0;
+
+
+}
+
+header{
+ position: fixed;
+ background-color: rgba(37, 19, 11, 0.925);
+ padding: 20px;
+width: 100%;
+height: 30px;
+
+
+
+}
+
+.userlogo{
+    position: static;
+    text-align: center;
+    background-color:#ffffff;
+    height:35px;
+    width: 50px;
+    padding-top: 7%;
+    padding-right:5px ;
+    margin: 0%;
+    border: 4px solid rgba(255, 255, 255, 0.774);
+    border-radius: 40px;
+
+}
+
+   .sidebar{
+
+    background-color: aqua;
+    width: 200px;
+    height: 100%;
+    margin-top: 70px;
+    padding-top: 30px;
+    position: fixed;
+    right: 0;
+   transition:0.7s ;/* speed for the checkbttn */ 
+   transition-property:right ;
+
+   }
+
+   .sidebar a{
+color: #aa2828;
+display: block;
+width: 100%;
+line-height:50px ;
+text-decoration: none;
+padding-right:40px ;
+box-sizing:border-box ;
+
+   }
+
+   .sidebar a:hover{
+background: #c185bde0;
+
+   }
+
+   .sidebar i{
+    padding-left: 10px;
+   color: #fff;
+   }
+
+   label #sidebar-bttn{
+    z-index: 1;
+    color: #ffffff;
+    position: sticky;
+    cursor: pointer;
+    right: 157px;
+  
+    font-size: 20px;
+    margin: 10px 0;
+    transition: 0.5s;
+    transition-property:color ;
+   }
+   label #sidebar-bttn:hover{
+
+    color: rgb(255, 0, 119);
+   }
+
+   #check{
+    display: contents;
+   }
+
+   #check:checked ~ .sidebar{ 
+    /*for hide the side bar*/
+    right: -150px;
+   }
+   /* to show the logo */
+   #check:checked ~ .sidebar a span{
+      display: contents;
+   }
+   #check:checked ~.sidebar a{
+    font-size: 22px;
+    margin-right :125px ;
+    width: 75px;
+    
+   }

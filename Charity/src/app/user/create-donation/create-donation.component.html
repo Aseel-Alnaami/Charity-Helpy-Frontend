@@ -1,0 +1,104 @@
+<div class="vl-sidebar-area sp2">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="vl-event-content-area">
+            <div class="vl-large-thumb">
+              <!-- <img class="w-90" src="assets/HomeDesign/donat00.jpg" alt=""> -->
+              <img class="w-97" src="assets/HomeDesign/donat00.jpg" alt="" style="display: block; margin: 0 auto; max-width: 95%; height: auto;">
+            </div>
+  <div class="vl-event-box-bg cause-box-bg">
+    <div class="row">
+    
+      <div class="display-amount" id="displayAmount">${{ balance }}</div>
+
+
+
+      <div class="amount-selector">
+        <button class="button" (click)="selectAmount(10)">
+          <span><img src="assets/HomeDesign/img/icons/dollar.svg" alt=""></span>10
+        </button>
+        <button class="button" (click)="selectAmount(20)">
+          <span><img src="assets/HomeDesign/img/icons/dollar.svg" alt=""></span>20
+        </button>
+        <button class="button" (click)="selectAmount(30)">
+          <span><img src="assets/HomeDesign/img/icons/dollar.svg" alt=""></span>30
+        </button>
+        <button class="button" (click)="selectAmount(40)">
+          <span><img src="assets/HomeDesign/img/icons/dollar.svg" alt=""></span>40
+        </button>
+        <button class="button" (click)="selectAmount(50)">
+          <span><img src="assets/HomeDesign/img/icons/dollar.svg" alt=""></span>50
+        </button>
+      
+        <!-- إدخال مبلغ مخصص -->
+        <div class="mt-3">
+          <input type="number" [(ngModel)]="customAmount" (input)="selectAmount(customAmount)" placeholder="Enter Custom Donate " class="form-control" />
+        </div>
+      </div>
+      
+
+      <!-- select method -->
+       <div class="space-div">
+        <div class="select-method">
+          <h4 class="title pb-32">Visa Payment</h4>
+
+          
+ 
+        <div class="donate-form">
+            <form (ngSubmit)="VisaPayment()">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 mb-20">
+                  <input type="text" [(ngModel)]="cardNumber" name="cardNumber" placeholder="Card Number" required>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-20">
+                  <input type="text" [(ngModel)]="cvvNumber" name="cvvNumber" placeholder="Cvv Number" required>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-20">
+                  <input type="email" [(ngModel)]="email" name="email" placeholder="Email Address" required>
+                </div>
+              </div>
+              <div class="btn-area">
+                <button type="submit" class="header-btn1">
+                  Donate <span><i class="fa-solid fa-arrow-right"></i></span>
+                </button>
+              </div>
+            </form>
+          </div>
+          
+
+       <br>
+       <div class="btn-area">
+        <button class="header-btn1" [routerLink]="['/charity']">
+          Go To Charities Page <span><i class="fa-solid fa-arrow-right"></i></span>
+        </button>
+      </div>
+
+      <br>
+          <div class="btn-area">
+            <button class="header-btn1" [routerLink]="['/user/paydonation']">
+              See All Your Donations <span><i class="fa-solid fa-arrow-right"></i></span>
+            </button>
+          </div>
+          
+          
+          <div class="content">
+            
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+    <br>
+
+    <br>
+
+    <br>
+
+    <br>
+    <br>
+
+    <br>
+    <br>
+
+    <br>

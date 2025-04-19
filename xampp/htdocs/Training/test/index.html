@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link href='mainstyle.CSS' rel='stylesheet'>
+</head>
+<body>
+    <div class="container"> 
+        <div class="box"> 
+            <div class="Question" id="question"> 
+                <!-- The # symbol specifies that the selector is? -->
+            </div>
+            <div class="Answers" id="answers"> 
+                <button class="bttn"> ans1</button>
+                <button class="bttn"> ans2</button>
+                <button class="bttn"> ans3</button>
+                <button class="bttn"> ans4</button>
+            </div>
+            <button class="Nbttn" id="Nbttn"> Next</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+    body {
+    font-family: 'Century';
+    background: linear-gradient(110deg, rgb(45 96 16), #fffffe);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.702);
+}
+
+h4 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.277);
+}
+
+.card {
+    margin: 100px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #aaa;
+}
+
+.box {
+    background: #3e762a74;
+    height: auto;
+    width: 450px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.box h3 {
+    margin-bottom: 25px;
+}
+
+.Question {
+    margin-top: 10px;
+    margin-bottom: 27px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 4px 2px 4px rgba(0, 0, 0, 0.702);
+}
+
+.bttn {
+    display: block; 
+    width: 100%;
+    padding: 7px;
+    margin: 10px;
+    background-color: #8cbb73cb;
+    border-radius: 6px;
+    font-size: large;
+    color: #fffffe;
+    border: none;
+    cursor: pointer;
+}
+
+.bttn:not([disabled]):hover {
+    padding: 10px;
+    margin: 12px;
+    background-color: #68cb33cb;
+    box-shadow: 0 5px 14px 0 rgba(238, 232, 232, 0.49);
+}
+
+.bttn:disabled {
+    cursor: not-allowed;
+}
+
+.Nbttn {
+    display: block; 
+    width: 100%;
+    padding: 7px;
+    margin: 10px;
+    background-color: #69c13a;
+    border-radius: 6px;
+    font-size: large;
+    color: #fffffe;
+    border: none;
+    cursor: pointer;
+}
+
+.Nbttn:hover {
+    padding: 8px;
+    margin: 12px;
+    background-color: #95d175;
+    box-shadow: 0 2px 12px 0 rgba(238, 232, 232, 0.354);
+}
+
+.correct {
+    background-color: #94a728;
+}
+
+.incorrect {
+    background-color: #dc3545;
+}
+
+</style>

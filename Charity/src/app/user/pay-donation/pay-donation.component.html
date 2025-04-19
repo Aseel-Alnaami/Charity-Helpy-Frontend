@@ -1,0 +1,37 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+
+ <div *ngIf="donations && donations.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Charity</th>
+        <th>Donation Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let donation of donations">
+        <td>{{ donation.amount }} $</td>
+        <td>{{ donation.charityname }}</td>
+        <td>{{ donation.donationdate | date: 'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="!donations || donations.length === 0">
+  <p>No donations found for this user.</p>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

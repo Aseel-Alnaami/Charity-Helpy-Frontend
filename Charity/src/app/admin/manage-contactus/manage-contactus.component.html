@@ -1,0 +1,52 @@
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-xl-12 col-sm-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Sent Contacts</h4>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                    <th>Contact Date</th>
+                                    <th>Status</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let contact of allContacts">
+                                    <td>{{contact.contactid}}</td>
+                                    <td>{{contact.name}}</td>
+                                    <td>{{contact.email}}</td>
+                                    <td>{{contact.message}}</td>
+                                    <td>{{contact.contactdate}}</td>
+                                    <td>{{contact.status}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+                    </div>
+                    <button routerLink="/admin/pindingcontact" class="btn m-2"
+                        style="background-color: #d6d6d6; color: #333; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 500;">
+                        View Pending Contacts
+                    </button>
+                    <br>
+                    <button routerLink="/admin/sentcontact" class="btn m-2"
+                        style="background-color: #d6d6d6; color: #333; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 500;">
+                        View Sent Contacts
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
