@@ -1,27 +1,53 @@
 # Charity
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+# Charity Helpy - Frontend
 
-## Development server
+**Charity Helpy** is a full-stack charity web platform developed as part of an internship at [Tahaluf UAE].  
+This Angular-based frontend connects with a RESTful ASP.NET Core backend and Oracle database, allowing users to explore, publish, and donate to charity organizations securely.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+> 🔒 Note: This project is for learning/demo purposes only. It was developed based on company-provided requirements and is not intended for public or commercial use.
 
-## Code scaffolding
+## 🌐 Live Demo
+(You can add a link to a hosted version or demo video if available)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🧰 Tech Stack
 
-## Build
+- **Framework**: Angular 16
+- **Languages**: TypeScript, HTML, CSS
+- **UI Design**: Bootstrap
+- **Map Integration**: Leaflet (OpenStreetMap)
+- **Payment**: Stripe API (via backend)
+- **API Connection**: ASP.NET Core RESTful API
+- **Version Control**: Git
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## ⚙️ Features
 
-## Running unit tests
+- View all verified charities on an interactive map
+- Add new charities with location, mission, and category
+- Secure online payments for publishing using Stripe
+- Role-based access (Admin, User, Guest)
+- Dynamic dashboard for admins with reports
+- Automatic PDF invoices sent via email
+- Clean, responsive UI with testimonial & contact forms
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🚀 Getting Started
 
-## Running end-to-end tests
+### Prerequisites
+- Node.js & npm
+- Angular CLI (`npm install -g @angular/cli`)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Installation
 
-## Further help
+```bash
+# Clone the repo
+git clone https://github.com/your-username/charity-helpy-frontend.git
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Navigate to the project folder
+cd charity-helpy-frontend
+
+# Install dependencies
+npm install
+
+# Run the project locally
+ng serve --open
